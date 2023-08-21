@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "https://luishenriquefnx-001-site1.btempurl.com/",
+        "secure": true,
+        "logLevel": "debug"
+    }
+}
