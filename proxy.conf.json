@@ -1,6 +1,6 @@
 {
     "/api/*": {
-        "target": "https://luishenriquefnx-001-site1.btempurl.com/",
+        "target": "https://docmanager-api.azurewebsites.net/",
         "secure": true,
         "logLevel": "debug"
     }
