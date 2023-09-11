@@ -14,6 +14,7 @@ import { DocumentTypeFilter } from '../document-type/models/document-type-filter
 import { DocumentPartnersFilter } from '../document-partners/models/document-partners-filter';
 import { DocumentPartnersView } from '../document-partners/models/document-partners-view';
 import { DocumentView } from './models/document-view';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-document',
@@ -31,6 +32,7 @@ export class DocumentComponent implements OnInit {
     private DocumentTypeService: DocumentTypeService,
     private pagerService: PagerService,
     private spinner: NgxSpinnerService,
+    private datePipe: DatePipe,
     private utils: Utils
 
   ) {
@@ -80,7 +82,7 @@ export class DocumentComponent implements OnInit {
       this.pager = this.pagerService.getPager(this.totalItem, page, view._pageSize);
       this.pagedItems = this.allItems; 
       for(var i=0; i<this.pagedItems.length; i++){
-        this.pagedItems[i].validity = this.pagedItems[i].validity.toString("dd/MM/yyyy").split(' ')[0];      
+        this.pagedItems[i].validity = this.datePipe.transform(this.pagedItems[i].validity, 'dd/MM/yyyy')
       }
       this.currentPage = page;
       this.spinner.hide();
