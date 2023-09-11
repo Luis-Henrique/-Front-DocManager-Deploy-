@@ -81,7 +81,7 @@ export class GroupAutorizationMaintenanceComponent implements OnInit {
     else
     {
       var userAutorization = parseInt(this.utils.getUserAutorization((localStorage.getItem('currentUser') || "")).toString());
-      if (userAutorization == 1 || userAutorization == 3) {
+      if (userAutorization == 3) {
         if (this.groupAutorization.id !== undefined && this.groupAutorization.id != '') {
           this.spinner.show();
           this.groupAutorizationService.delete(this.groupAutorization.id).subscribe((response: any) => {
@@ -128,7 +128,7 @@ export class GroupAutorizationMaintenanceComponent implements OnInit {
 
   insertDocumentType(groupAutorization: GroupAutorizationView) {
     var userAutorization = parseInt(this.utils.getUserAutorization((localStorage.getItem('currentUser') || "")).toString());
-    if (userAutorization == 1 || userAutorization == 3) {
+    if (userAutorization == 3) {
       const groupAutoriozationPost = new GroupAutoriozationPost(groupAutorization);
       this.spinner.show();
       this.groupAutorizationService.insert(groupAutoriozationPost).subscribe((response: any) => {
@@ -154,7 +154,7 @@ export class GroupAutorizationMaintenanceComponent implements OnInit {
     else
     {
       var userAutorization = parseInt(this.utils.getUserAutorization((localStorage.getItem('currentUser') || "")).toString());
-      if (userAutorization == 1 || userAutorization == 3) {
+      if (userAutorization == 3) {
         const groupAutoriozationPut = new GroupAutorizationPut(groupAutorization);
         this.spinner.show();
         this.groupAutorizationService.update(groupAutoriozationPut).subscribe((response: any) => {
